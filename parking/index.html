@@ -1,57 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Landing Page</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <!--Navigation Bar-->
+
+<head>
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!--Navigation Bar-->
     <div id="header">
         <nav id="navbar">
-            <img src="images\logo.png" alt="Logo of parking system" width="200px">
+            <img src="images/logo.png" alt="Logo of parking system" width="200px">
             <ul>
                 <li><a href="#add_employee">Add Employee</a></li>
                 <li><a href="#add_vehicle">Add Vehicle</a></li>
-                <li><a href="#give_feedback">Give Feedback</a></li>
+                <!-- <li><a href="#give_feedback">Give Feedback</a></li> -->
                 <li><a href="#pricing">Pricing</a></li>
             </ul>
         </nav>
     </div>
-        <!--Cover image-->
-        <!--Add Employee Section-->
-        <details>
-            <summary>Employee Details Form</summary>
+    <!--Cover image-->
+    <!--Add Employee Section-->
+    <details id="regSection">
+        <summary>Employee Details Form</summary>
         <section id="add_employee">
             <div id="employee_form">
                 <h2>Employee Details Form</h2>
                 <!--Add Employee Form-->
                 <form>
-                    <label for="name">Full Name : </label><br>
-                    <input type="text" id="name" name = "name" pattern="[A-Za-z\s]+" title="Name should contain only alphabets and spaces" required><br><br>
+                    <label for="name" class="name">Enter full Name : </label><br>
+                    <input type="text" id="name" name="name" title="Name should contain only alphabets and spaces"
+                        required class="name" value=""><br><br>
 
-                    <label class="gender">Gender : </label><br>
-                    <input type="radio" id="male" name="gender" value="Male" required class="gender">
+                    <label class="gender" id="userGender">Gender : </label><br>
+                    <input type="radio" id="male" name="gender" value="Male" required class="gender"
+                        onclick="showEmail()">
                     <label for="male" class="gender">Male</label>
-                    <input type="radio" id="female" name="gender" value="Female" class="gender">
+                    <input type="radio" id="female" name="gender" value="Female" class="gender" onclick="showEmail()">
                     <label for="female" class="gender">Female</label>
-                    <input type="radio" id="other" name="gender" value="Other" class="gender">
+                    <input type="radio" id="other" name="gender" value="Other" class="gender" onclick="showEmail()">
                     <label for="other" class="gender">Other</label><br><br>
 
-                    <label for="email">Email : </label><br>
-                    <input type="email" id="email" name="email" required><br><br>
+                    <label for="email" class="email" id="emailId">Email : </label><br>
+                    <input type="email" id="email" name="email" required class="email "><br><br>
+                    <label for="password" class="password" id="pass" >Password : </label><br>
+                    <div style="display: flex;">
 
-                    <label for="password">Password : </label><br>
-                    <input type="password" id="password" name="password" required><br><br>
+                        <input type="password" id="password" name="password" required class="password" title=""
+                        oninput="showBorder()">
+                        <img src="images/eye-password-hide-svgrepo-com.svg" alt="" width="20px" height="50px"
+                            id="eyeButton" onclick="showPass()">
+                    </div>
 
-                    <label for="confirm_password">Confirm Password : </label><br>
-                    <input type="password" id="confirm_password" name="confirm_password" required><br><br>
 
-                    <label for="contact_no">Contact Number : </label><br>
-                    <input type="number" id="contact_no" name="contact_no" pattern="[6-9]{1}[0-9]{9}" title="Contact number is invalid" required><br><br>
 
-                    <input type="submit" value="Add Employee">
+                    <label for="confirm_password" class="confirmPassword">Confirm Password : </label><br>
+                    <input type="password" id="confirm_password" name="confirm_password" required
+                        class="confirmPassword"><br><br>
+
+                    <label for="contact_no" class="contact" id="contact_No">Contact Number : </label><br>
+                    <input type="number" id="contact_no" name="contact_no" title="Enter your contact no." required
+                        class="contact"><br><br>
+
+                    <input type="submit" value="Add Employee" onmousedown="closeForm()">
                 </form>
             </div>
             <div id="employee_photo">
@@ -60,9 +73,9 @@
         </section>
     </details>
 
-        <!--Add Vehicle Section-->
-        <details>
-            <summary>Vehicle Details Form</summary>
+    <!--Add Vehicle Section-->
+    <details id="vehicleRegSec">
+        <summary>Vehicle Details Form</summary>
         <section id="add_vehicle">
             <div id="vehicle_photo">
                 <img src="images/vehicle.jpg" alt="Vehicle Form image" width="600px" height="300px">
@@ -71,36 +84,41 @@
                 <h2>Vehicle Details Form</h2>
                 <!--Add Vehicle Form-->
                 <form>
-                    <label for="company">Company : </label><br>
-                    <input type="text" id="company" name="company" pattern="[A-Za-z\s]+" title="Company name cannot contain symbols and numbers" required><br><br>
+                    <label for="company " class="companyName">Enter company name: </label><br>
+                    <input type="text" id="company" name="company"
+                        title="Company name cannot contain symbols and numbers and should start with uppercase" value=""
+                        class="companyName" required><br><br>
 
-                    <label for="model">Model : </label><br>
-                    <input type="text" id="model" name="model" required><br><br>
+                    <label for="model" class="modelName">Model : </label><br>
+                    <input type="text" id="model" name="model" required class="modelName"><br><br>
 
-                    <label for="type">Type : </label><br>
-                    <select name="type" id="type" required>
+                    <label for="type" class="vehicleType">Type : </label><br>
+                    <select name="type" id="type" class="vehicleType" required onchange="showVehicleNumber()">
+                        <option value="Select type">Select type</option>
                         <option value="Cycle">Cycle</option>
                         <option value="Motorcycle">MotorCycle</option>
                         <option value="Four Wheeler">Four Wheeler</option>
                     </select><br><br>
 
-                    <label for="VehicleNo">Vehicle Number : </label><br>
-                    <input type="text" id="VehicleNo" name="VehicleNo" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}" title="Invalid vehicle number" required><br><br>
+                    <label for="VehicleNo" class="vehicleNumber">Vehicle Number : </label><br>
+                    <input type="text" id="VehicleNo" name="VehicleNo" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}"
+                        title="Invalid vehicle number" class="vehicleNumber" required><br><br>
 
-                    <label for="empId">Employee ID : </label><br>
-                    <input type="number" id="empId" name="empId" required><br><br>
+                    <label for="empId" class="empId">Employee ID : </label><br>
+                    <input type="number" id="empId" name="empId" class="empId" required><br><br>
 
-                    <label for="identification">Identifications : </label><br>
-                    <textarea name="identification" id="identification" placeholder="vehicle-color, mark, visible accessories etc" required></textarea><br><br>
+                    <label for="identification" class="identification">Identifications : </label><br>
+                    <textarea name="identification" id="identification" class="identification"
+                        placeholder="vehicle-color, mark, visible accessories etc" required></textarea><br><br>
 
-                    <input type="submit" value="Add Vehicle">
+                    <input type="submit" value="Add Vehicle" onmousedown="closeVehForm()">
                 </form>
             </div>
         </section>
-        </details>
+    </details>
 
-        <details>
-            <summary>Feedback Form</summary>
+    <details class="feedbackSec">
+        <summary>Feedback Form</summary>
         <section id="give_feedback">
             <div id="feedback_form">
                 <h2>Feedback Form</h2>
@@ -113,10 +131,12 @@
                     <input type="email" id="email" name="email" required><br><br>
 
                     <label for="feedback">Feedback : </label><br>
-                    <textarea name="feedback" id="feedback" placeholder="How was your experience?" required></textarea><br><br>
+                    <textarea name="feedback" id="feedback" placeholder="How was your experience?"
+                        required></textarea><br><br>
 
                     <label for="suggestion">Suggestions : </label><br>
-                    <textarea name="suggestion" id="suggestion" placeholder="Any suggestions for improvement"></textarea><br><br>
+                    <textarea name="suggestion" id="suggestion"
+                        placeholder="Any suggestions for improvement"></textarea><br><br>
                     <input type="submit" value="Submit">
                 </form>
             </div>
@@ -124,64 +144,93 @@
                 <img src="images/feedback.jpg" alt="Feedback Form image" width="500px" height="300px">
             </div>
         </section>
-        </details>
+    </details>
 
-        <!--Pricing section-->
-        <section id="pricing">
-            <h2>Pricing</h2>
-            <div id="pricing_sections">
+    <!--Pricing section-->
+    <section id="pricing">
+        <h2>Pricing</h2>
+        <div id="pricing_sections">
             <!--Cycle pricing section-->
-                <section id="cycle">
-                    <h3>Cycle</h3>
-                    <div class="purchase_plan">
-                        <b>Rs.100</b>
-                        /month
-                    </div>
-                    <p>
-                        Rs.5 Daily<br>
-                        Rs.100 Monthly<br>
-                        Rs.500 Yearly
-                    </p>
-                    <button>Purchase Now</button>
-                </section>
-                <!--MotorCycle pricing section-->
-                <section id="motorcycle">
-                    <h3>MotorCycle</h3>
-                    <div class="purchase_plan">
-                        <b>Rs.200</b>
-                        /month
-                    </div>
-                    <p>
-                        Rs.10 Daily<br>
-                        Rs.200 Monthly<br>
-                        Rs.1000 Yearly
-                    </p>
-                    <button>Purchase Now</button>
-                </section>
-                <!--Four Wheeler pricing section-->
-                <section id="fourwheeler">
-                    <h3>Four Wheeler</h3>
-                    <div class="purchase_plan">
-                        <b>Rs.500</b>
-                        /month
-                    </div>
-                    <p>
-                        Rs.20 Daily<br>
-                        Rs.500 Monthly<br>
-                        Rs.3500 Yearly
-                    </p>
-                    <button>Purchase Now</button>
-                    </form>
-                </section>
-            </div>
-        </section>
-        <footer>
-            <p><strong>Metacube Parking System</strong></p>
-            <p>© 2025 Metacube Technologies. All Rights Reserved.</p>
-            <p>
-                <a href="mailto:info@metacubeparking.com">Contact Us</a> | 
-                +91 9123456780
-            </p>
-        </footer>    
-    </body>
+            <section id="cycle">
+                <h3>Cycle</h3>
+                <div class="purchase_plan">
+                    <b>Rs.100</b>
+                    /month
+                </div>
+                <select id="cyclePricing">
+                    <option value="5">Rs.5 Daily</option>
+                    <option value="100">Rs.100 Monthly</option>
+                    <option value="500">Rs.500 Yearly</option>
+                </select><br>
+                <button onmousedown="showPass('cyclePricing', 'cyclePass')">Get Pass</button>
+
+                <select id="fromOfCycle">
+                    <option value="USD">Change to USD</option>
+                    <option value="YEN">Change to YEN</option>
+                </select>
+                <button type="button" id="convert"
+                    onmousedown="conversion('cyclePricing','cyclePass','fromOfCycle')">Convert</button>
+                <p id="result"></p>
+                <input type="text" value="" id="cyclePass">
+            </section>
+            <!--MotorCycle pricing section-->
+            <section id="motorcycle">
+                <h3>MotorCycle</h3>
+                <div class="purchase_plan">
+                    <b>Rs.200</b>
+                    /month
+                </div>
+                <select id="motorCyclePricing">
+                    <option value="10">Rs.10 Daily</option>
+                    <option value="200">Rs.200 Monthly</option>
+                    <option value="1000">Rs.1000 Yearly</option>
+                </select><br>
+                <button onmousedown="showPass('motorCyclePricing', 'motorCyclePass')">Get Pass</button>
+
+                <select id="fromOfMotorCycle">
+                    <option value="USD">Change to USD</option>
+                    <option value="YEN">Change to YEN</option>
+                </select>
+                <button type="button" id="convert"
+                    onmousedown="conversion('motorCyclePricing','motorCyclePass','fromOfMotorCycle')">Convert</button>
+                <p id="result"></p>
+                <input type="text" value="" id="motorCyclePass">
+            </section>
+            <!--Four Wheeler pricing section-->
+            <section id="fourwheeler">
+                <h3>Four Wheeler</h3>
+                <div class="purchase_plan">
+                    <b>Rs.500</b>
+                    /month
+                </div>
+                <select id="fourWheelerPricing">
+                    <option value="20">Rs.20 Daily</option>
+                    <option value="500">Rs.500 Monthly</option>
+                    <option value="3500">Rs.3500 Yearly</option>
+                </select><br>
+                <button onmousedown="showPass('fourWheelerPricing', 'fourWheelerPass',)">Get Pass</button>
+
+                <select id="fromOfFourWheeler">
+                    <option value="USD">Change to USD</option>
+                    <option value="YEN">Change to YEN</option>
+                </select>
+                <button type="button" id="convert"
+                    onmousedown="conversion('fourWheelerPricing','fourWheelerPass','fromOfFourWheeler')">Convert</button>
+                <p id="result"></p>
+                <input type="text" value="" id="fourWheelerPass">
+                </form>
+            </section>
+        </div>
+    </section>
+    <footer>
+        <p><strong>Metacube Parking System</strong></p>
+        <p>© 2025 Metacube Technologies. All Rights Reserved.</p>
+        <p>
+            <a href="mailto:info@metacubeparking.com">Contact Us</a> |
+            +91 9123456780
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
 </html>
