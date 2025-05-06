@@ -1,5 +1,4 @@
-
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -10,7 +9,7 @@ body{
     font-size: 18px;
 }
 
-#navbar{
+#navbar {
     display: flex;
     justify-content: space-between;
     margin-left: 30px;
@@ -33,7 +32,7 @@ body{
     color: rgb(72, 170, 241);
 }
 
-#header{
+#header {
     width: 100%;
     height: 100vh;
     background-image: url("images/parkingImg.jpg");
@@ -60,7 +59,9 @@ summary {
     text-align: center;
 }
 
-#add_employee, #add_vehicle, #give_feedback{
+#add_employee,
+#add_vehicle,
+#give_feedback {
     margin: 0px 30px;
     display: flex;
     flex-wrap: wrap;
@@ -73,7 +74,9 @@ h2 {
     color: rgb(94, 164, 214);
 }
 
-#employee_form, #vehicle_form, #feedback_form {
+#employee_form,
+#vehicle_form,
+#feedback_form {
     padding: 20px;
     margin: 20px auto;
     box-shadow: 2px 4px 12px rgba(72, 170, 241, 0.1);
@@ -89,24 +92,31 @@ label {
     color: #333;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
     box-sizing: border-box;
     padding: 4px;
     margin: 5px 0px;
     width: 100%;
-    border: 1px solid #CCC;
+    border: 1px solid;
     border-radius: 5px;
 }
 
-input:hover, select:hover, textarea:hover, button:hover {
-    box-shadow: 1px 2px 5px rgba(0,0,0,0.70);
+input:hover,
+select:hover,
+textarea:hover,
+button:hover {
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.70);
 }
 
 input[type="radio"]:hover {
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-input[type="submit"], button {
+input[type="submit"],
+button {
     box-sizing: border-box;
     padding: 8px;
     margin: 10px 0px;
@@ -114,10 +124,11 @@ input[type="submit"], button {
     color: #000;
     border: 0px solid#CCC;
     border-radius: 5px;
-    width: 100%;  
+    width: 100%;
 }
 
-select, textarea {
+select,
+textarea {
     box-sizing: border-box;
     padding: 8px;
     margin: 10px 0px;
@@ -131,7 +142,9 @@ select, textarea {
     justify-content: center;
 }
 
-#cycle, #motorcycle, #fourwheeler {
+#cycle,
+#motorcycle,
+#fourwheeler {
     display: inline-block;
     margin: 0px 20px;
     padding: 0px 10px;
@@ -163,13 +176,67 @@ footer {
     padding: 10px;
     font-family: Arial, sans-serif;
 }
+
 footer a {
     color: white;
     text-decoration: none;
 }
+
 footer a:hover {
     text-decoration: underline;
 }
-.gender{
+
+.gender {
+    visibility: hidden;
+}
+
+.email {
+    visibility: hidden;
+}
+
+.password {
+    visibility: hidden;
+}
+
+.confirmPassword {
+    visibility: hidden;
+}
+
+.contact {
+    visibility: hidden;
+}
+
+.modelName {
+    visibility: hidden;
+}
+
+#vehicleRegSec {
+    display: none;
+}
+
+.vehicleType {
+    visibility: hidden;
+}
+
+.vehicleNumber {
+    visibility: hidden;
+}
+
+.empId {
+    visibility: hidden;
+}
+
+.identification {
+    visibility: hidden;
+}
+
+#pricing {
+    display: none;
+}
+
+.feedbackSec {
+    display: none;
+}
+#eyeButton{
     visibility: hidden;
 }
